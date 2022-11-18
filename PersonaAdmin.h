@@ -2,8 +2,9 @@
 #include <unistd.h>
 
 #include "Persona.h"
-#include "FuncionesAdicionales.h".h"
+#include "FuncionesAdicionales.h"
 #include "BookData.h"
+#pragma once
 
 using namespace std;
 
@@ -11,6 +12,7 @@ class Admin : public Persona{
   public:
   void agregarBook();
   void modificarDetalle();
+  friend class ingresar;
 
   private:
   static string superSecretPassword;

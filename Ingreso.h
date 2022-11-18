@@ -1,8 +1,13 @@
 #include <bits/stdc++.h>
 #include <unistd.h>
+
+#include "Persona.h"
+#include "PersonaAdmin.h"
+#pragma once
 using namespace std;
 
 class ingresar{
+
 public:
   void loginAdmin();
   void registrationAdmin();
@@ -10,6 +15,7 @@ public:
   void loginStudent();
   void registrationStudent();
   void forgotStudent();
+  friend class Admin;
 };
 
 
@@ -170,6 +176,8 @@ void ingresar::registrationStudent(){
 }
 
 void ingresar::forgotStudent(){
+  Admin admin;
+  string adminpassword;
   string cad = "studentInfo.txt";
       int count{0};
       string suserId;
@@ -177,6 +185,8 @@ void ingresar::forgotStudent(){
       string spass;
       cout<<"\n\t\tEnter the username you remember: ";
       cin>>suserId;
+      cout<<"\n\t\tEnter the Admin Password: ";
+      cin>>adminpassword;
 
 
       ifstream data(cad);
@@ -188,12 +198,12 @@ void ingresar::forgotStudent(){
       }
       data.close();
 
-      if(count==1){
+      if(count==1 &&  adminpassword==admin.superSecretPassword){
         cout<<"\n\n Your account is found! \n";
         cout<<"\n\n Your password is: "<<spass;
 
       }else{
-        cout<<"\n\t Sorry! your account is not found! \n"; 
+        cout<<"\n\t Sorry! Your Account is not Found or The Admin Password is incorrect! \n"; 
 
       }
 }

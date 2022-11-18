@@ -1,3 +1,4 @@
+
 #include <bits/stdc++.h>
 #include <unistd.h>
 
@@ -90,11 +91,11 @@ int main() {
         endl3();
         break;
       case 2:
-        ingresar.registrationAdmin();
+        ingresar.registrationStudent();
         endl3();
         break;
       case 3:
-        ingresar.forgotAdmin();
+        ingresar.forgotStudent();
         endl3();
         break;
 
